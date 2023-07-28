@@ -1,0 +1,234 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    padding: 20px;
+}
+
+main .pro-cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+main .pro-cont .product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main .pro-cont .product .image {
+    width: 95%;
+    height: 95%;
+    overflow: hidden;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .pro-cont .product .image:hover>img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+main .pro-cont .product .image .details {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scaleX(0);
+    transition: 0.3s;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .pro-cont .product .image .bed-details {
+    position: absolute;
+    z-index: 90000;
+    text-transform: center;
+    font-size: 20px;
+    font-weight: bold;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+main .pro-cont .product .image:hover .bed-details {
+    transition-delay: 0.6s;
+    visibility: visible;
+    opacity: 1;
+}
+
+main .pro-cont .product .image:hover:hover {
+    cursor: pointer;
+}
+
+main .pro-cont .product .image .bed-details .p1 {
+    margin-left: -20px;
+    margin-bottom: 5px;
+}
+
+main .pro-cont .product .image .bed-details .p2 {
+    margin-left: 35px;
+}
+
+main .pro-cont .product .image:hover>.details {
+    animation-name: open-details;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+
+}
+
+@keyframes open-details {
+    0% {
+        transform: scaleX(0) skewX(40deg);
+        width: 0px;
+    }
+
+    30% {
+        transform: scaleX(1) skewX(40deg);
+        width: 0px;
+    }
+
+    35% {
+        transform: scaleX(1) skewX(40deg);
+        width: 0px;
+    }
+
+    100% {
+        transform: scaleX(1) skewX(40deg);
+        width: 50%;
+    }
+}
+
+main .pro-cont .product .image img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 5px 0px gray;
+    transition: 0.3s;
+}
+
+main .pell {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    row-gap: 20px;
+    padding: 17px;
+    padding-bottom: 15px;
+    /* border-left: 2px solid black; */
+}
+
+main .pell .cart {
+    height: 450px;
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: 4fr 1.7fr;
+    grid-template-rows: auto 1fr;
+
+    overflow-y: scroll;
+    font-size: 20px;
+}
+
+main .pell .cart .name-title {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+main .pell .cart .price-title {
+    padding: 10px;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+
+main .pell .cart .name {
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+main .pell .cart .price {
+    padding: 10px;
+    font-size: 20px;
+}
+
+main .pell .total {
+    position: relative;
+    color: black;
+    padding: 30px 20px;
+    font-size: 20px;
+    background-color: #eee;
+}
+
+main .pell .total form,
+main .pell .total .rest-con {
+    margin-top: 20px;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+main .pell .total form input[type="text"] {
+    padding: 3px;
+    font-size: 18px;
+    width: 120px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid brown;
+    text-align: center;
+}
+
+main .pell .total form input[type="button"], main .pell .total #clear {
+    padding: 5px;
+    font-size: 18px;
+
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px brown, 0px 0px 5px 0px brown inset;
+    color: black;
+    transition: 0.3s;
+}
+
+main .pell .total form input[type="button"]:hover, main .pell .total #clear:hover {
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+}
+
+main .pell .total #clear {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    transform: translate(-50%);
+    z-index: 5000;
+}
+
+
+
